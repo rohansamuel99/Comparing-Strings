@@ -9,7 +9,7 @@ qgram_distance2 = lambda s, t, k: sum(abs({z:sum((1 if a==z else 0)for a in[s[i:
 # s = string 1 from dna_string.txt
 # t = string 2 from dna_string.txt
 # k = length of k-mer wanted
-
+# print (qgram_distance2("GCTAGCTAGCAT", "ACGATCGATCGA", 2))
 # using a dictionary
  
 def kmer_distance(s, t, k):
@@ -29,15 +29,15 @@ def kmer_distance(s, t, k):
         kmer = t[j:j + k]
         if kmer not in d:
             d[kmer] = 0
-        d[kmer] += 1
+        d[kmer] -= 1 
     #     for z in range(0, k):
     #         if s[i : i + k - 1] == k:
     #             d -= 1
     # return d
-    return abs(sum(d.values()))
+    # return abs(sum(d.values()))
+    # return {key: abs(d[key]) for key in d}
+    return sum(abs(d[key]) for key in d)
     
 
 # print(kmer_distance("AGCT", "ACGT", 2))
 print(kmer_distance("GCTAGCTAGCAT", "ACGATCGATCGA", 2))
-
-#### adds similar kmers from different strings, need it to subtract that difference
