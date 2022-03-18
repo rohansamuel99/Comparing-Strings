@@ -41,3 +41,8 @@ def kmer_distance(s, t, k):
 
 # print(kmer_distance("AGCT", "ACGT", 2))
 print(kmer_distance("GCTAGCTAGCAT", "ACGATCGATCGA", 2))
+
+########## Hamming Distance ##########
+def hamming_distance(s, t):
+    nucleotide = {"A": "0001", "T": "0010", "G": "0011", "C": "0100"}
+    # iterate through string and then substitute each string with teh value.
