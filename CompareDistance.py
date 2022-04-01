@@ -5,6 +5,11 @@
 # Info: Contains two functions; kmer_distance() which compares the knmer distance between two strings,
 #       hamming_distance() which compares the hamming distance between two strings of equal length
 
+import random
+import sys
+
+from RandomSequenceGenerator import RandomSequenceGenerator 
+
 # initial ideas
 # take 2 strings and assign a number to k and split them in rolling k's or normal spilts. 
 # take the k-mers from both the strings and compare them side by side, and then use the number of characters between 2 similar k-mers from the strings 
@@ -18,7 +23,8 @@
 # k = length of k-mer wanted
 # print (qgram_distance2("GCTAGCTAGCAT", "ACGATCGATCGA", 2))
 # using a dictionary
- 
+s, t = RandomSequenceGenerator()
+print(s, t)
 def kmer_distance(s, t, k):
     #empty dictionary
     d = {}
@@ -48,6 +54,8 @@ def kmer_distance(s, t, k):
 
 # print(kmer_distance("AGCT", "ACGT", 2))
 # print(kmer_distance("GCTAGCTAGCAT", "ACGATCGATCGA", 2))
+print(kmer_distance(s, t, 2))
+
 
 ########## Hamming Distance ##########
 # Can only be used to compare strings of the same length
@@ -62,4 +70,4 @@ def hamming_distance(s, t):
     # return sum(1 for i in range(len(s)) if s[i] != t[i])
     # return sum(1 for a,b in zip(s,t) if a != b)
 
-print(hamming_distance("GCTAGCTAGCAT", "ACGATCGATCGA"))
+print(hamming_distance(s, t))
