@@ -1,11 +1,18 @@
+# Date Created: 10-01-2022
+# Date Modified: 1-04-2022
+# Author: Rohan Hariharan
+# File:  CompareDistance.py
+# Info: Contains two functions; kmer_distance() which compares the knmer distance between two strings,
+#       hamming_distance() which compares the hamming distance between two strings of equal length
+
 # initial ideas
 # take 2 strings and assign a number to k and split them in rolling k's or normal spilts. 
 # take the k-mers from both the strings and compare them side by side, and then use the number of characters between 2 similar k-mers from the strings 
 # to find the distance between the k-mers
 # this can be done by assigning the strings to a list and then parsing through the list to find k-mers 
 
-# the monstrosity
-qgram_distance2 = lambda s, t, k: sum(abs({z:sum((1 if a==z else 0)for a in[s[i:i+k]for i in range(len(s)-k+1)])-sum((1 if b==z else 0)for b in[t[i:i+k] for i in range(len(t)-k+1)])for z in{q:0 for q in[s[i:i+k]for i in range(len(s)-k+1)]+[t[i:i+k]for i in range(len(t)-k+1)]}}[key])for key in{z:sum((1 if a==z else 0)for a in[s[i:i+k]for i in range(len(s)-k+1)])-sum((1 if b==z else 0)for b in[t[i:i+k]for i in range(len(t)-k+1)])for z in{q:0 for q in[s[i:i+k]for i in range(len(s)-k+1)]+[t[i:i+k]for i in range(len(t)-k+1)]}})
+# the one-line monstrosity
+# qgram_distance2 = lambda s, t, k: sum(abs({z:sum((1 if a==z else 0)for a in[s[i:i+k]for i in range(len(s)-k+1)])-sum((1 if b==z else 0)for b in[t[i:i+k] for i in range(len(t)-k+1)])for z in{q:0 for q in[s[i:i+k]for i in range(len(s)-k+1)]+[t[i:i+k]for i in range(len(t)-k+1)]}}[key])for key in{z:sum((1 if a==z else 0)for a in[s[i:i+k]for i in range(len(s)-k+1)])-sum((1 if b==z else 0)for b in[t[i:i+k]for i in range(len(t)-k+1)])for z in{q:0 for q in[s[i:i+k]for i in range(len(s)-k+1)]+[t[i:i+k]for i in range(len(t)-k+1)]}})
 # s = string 1 from dna_string.txt
 # t = string 2 from dna_string.txt
 # k = length of k-mer wanted
@@ -40,9 +47,19 @@ def kmer_distance(s, t, k):
     
 
 # print(kmer_distance("AGCT", "ACGT", 2))
-print(kmer_distance("GCTAGCTAGCAT", "ACGATCGATCGA", 2))
+# print(kmer_distance("GCTAGCTAGCAT", "ACGATCGATCGA", 2))
 
 ########## Hamming Distance ##########
+# Can only be used to compare strings of the same length
 def hamming_distance(s, t):
-    nucleotide = {"A": "0001", "T": "0010", "G": "0011", "C": "0100"}
+    # nucleotide = {"A": "0001", "T": "0010", "G": "0011", "C": "0100"}
     # iterate through string and then substitute each string with teh value.
+    difference = 0
+    for i in range(len(s)): 
+        if s[i] != t[i]:
+            difference += 1
+    return difference
+    # return sum(1 for i in range(len(s)) if s[i] != t[i])
+    # return sum(1 for a,b in zip(s,t) if a != b)
+
+print(hamming_distance("GCTAGCTAGCAT", "ACGATCGATCGA"))
