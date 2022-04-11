@@ -7,6 +7,9 @@
 
 import random
 import sys
+import matplotlib.pyplot as plt
+import numpy as np
+
 
 from RandomSequenceGenerator import RandomSequenceGenerator 
 
@@ -23,8 +26,8 @@ from RandomSequenceGenerator import RandomSequenceGenerator
 # k = length of k-mer wanted
 # print (qgram_distance2("GCTAGCTAGCAT", "ACGATCGATCGA", 2))
 # using a dictionary
-s, t = RandomSequenceGenerator()
-print(s, t)
+# s, t = RandomSequenceGenerator()
+# print(s, t)
 def kmer_distance(s, t, k):
     #empty dictionary
     d = {}
@@ -54,7 +57,7 @@ def kmer_distance(s, t, k):
 
 # print(kmer_distance("AGCT", "ACGT", 2))
 # print(kmer_distance("GCTAGCTAGCAT", "ACGATCGATCGA", 2))
-print(kmer_distance(s, t, 2))
+# print(kmer_distance(s, t, 2))
 
 
 ########## Hamming Distance ##########
@@ -70,4 +73,3 @@ def hamming_distance(s, t):
     # return sum(1 for i in range(len(s)) if s[i] != t[i])
     # return sum(1 for a,b in zip(s,t) if a != b)
 
-print(hamming_distance(s, t))
