@@ -9,8 +9,8 @@ import sys
 
 # file = open("dna_string.txt", "a")
 
-def RandomSequenceGenerator():
+def RandomSequenceGenerator(string_length):
     dna_bases = "ACGT"
     # file.write("".join (random.choice(dna_bases) for i in range(random.randint(19, 41))))
-    return ["".join(random.choice(dna_bases) for i in range(100))for pair in range(2)]
+    return ["".join(random.choice(dna_bases) for i in range(string_length))for pair in range(2)]
     # file.write("\n")

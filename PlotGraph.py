@@ -16,7 +16,7 @@ def plot_graph():
     hamming_points = []
 
     for i in range (100):
-        s, t = RandomSequenceGenerator()
+        s, t = RandomSequenceGenerator(100)
 
         print(s, t)
         print(kmer_distance(s, t, 2))
@@ -31,6 +31,9 @@ def plot_graph():
     plt.title("Comparison between K-mer Distance and Hamming Distance")    
     plt.ylabel('Hamming Distance')    
     plt.xlabel('K-mer Distance')   
+    ax = plt.gca()
+    ax.set_xlim([0, 90])
+    ax.set_ylim([0, 100])
     plt.scatter(kmer_points, hamming_points)
     plt.show()
     
