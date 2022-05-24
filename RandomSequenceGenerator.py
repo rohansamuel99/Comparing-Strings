@@ -2,7 +2,7 @@
 # Date Modified: 1-04-2022
 # Author: Rohan Hariharan
 # File:  RandomSequenceGenerator.py
-# Info: Contains a function RandomSequenceGenerator() that creates a random sequence of 2 DNA strings and then writes the to a file
+# Info: Contains a function RandomSequenceGenerator() that creates a random sequence of 2 DNA strings
 
 import random
 import sys 
